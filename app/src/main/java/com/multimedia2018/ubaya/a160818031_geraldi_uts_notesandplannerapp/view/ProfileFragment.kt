@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.R
+import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.util.loadImage
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
@@ -20,12 +21,12 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         if (arguments != null)
         {
             val username = ProfileFragmentArgs.fromBundle(requireArguments()).username
             txtProfileName.text = "Hi, $username"
         }
+
         btnProfileDetail.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileDetail()
             Navigation.findNavController(it).navigate(action)

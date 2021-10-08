@@ -10,7 +10,7 @@ class NoteDetailViewModel: ViewModel() {
     fun fetchData() {
         val singlenote = Notes("1", "Lorem Ipsum", "Lorem ipsum dolor sit amet",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "https://www.freebestfonts.com/yone/prev/lipsum-b.jpg")
+        "http://dummyimage.com/115x100.png/5fa2dd/ffffff")
 
         noteDetailLD.value = singlenote
     }

@@ -9,8 +9,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.R
+import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.util.loadImage
 import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.viewmodel.NoteDetailViewModel
 import kotlinx.android.synthetic.main.fragment_note_read.*
+import kotlinx.android.synthetic.main.note_list_item.view.*
 
 class NoteReadFragment : Fragment() {
     private lateinit var viewModelDetailNote: NoteDetailViewModel
@@ -45,7 +47,7 @@ class NoteReadFragment : Fragment() {
             txtReadNoteTitle.setText(viewModelDetailNote.noteDetailLD.value?.title)
             txtReadNoteDesc.setText(viewModelDetailNote.noteDetailLD.value?.desc)
             txtReadNoteContent.setText(viewModelDetailNote.noteDetailLD.value?.content)
-            //jangan lupa tambahkan penunjuk gambar
+            imgReadNote.loadImage(viewModelDetailNote.noteDetailLD.value?.photoUrl, progressBar2)
         })
     }
 }
