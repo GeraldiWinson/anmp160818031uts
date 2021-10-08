@@ -68,12 +68,19 @@
         <action
             android:id="@+id/actionEditPlan"
             app:destination="@id/plannerEditFragment" />
+        <argument
+            android:name="idPlan"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/plannerEditFragment"
         android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.PlannerEditFragment"
         android:label="fragment_planner_edit"
-        tools:layout="@layout/fragment_planner_edit" />
+        tools:layout="@layout/fragment_planner_edit" >
+        <argument
+            android:name="idPlan"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/itemProfile"
         android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.ProfileFragment"

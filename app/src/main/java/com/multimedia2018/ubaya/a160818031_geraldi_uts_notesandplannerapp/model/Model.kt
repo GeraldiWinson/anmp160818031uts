@@ -7,3 +7,12 @@ data class Notes(
     val content:String?,
     val photoUrl:String?
 )
+
+data class Planners(
+    val id:String?,
+    val title:String?,
+    val desc:String?,
+    val date:String?,
+    val time:String?,
+    val alarm:String?
+)

@@ -83,7 +83,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView10">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtEditNoteDesc"
+                android:id="@+id/txtEditPlanDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -103,7 +103,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtEditNoteTitle"
+                android:id="@+id/txtEditPlanTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>

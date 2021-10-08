@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.R
 import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.viewmodel.NoteDetailViewModel
 import kotlinx.android.synthetic.main.fragment_note_edit.*
-import kotlinx.android.synthetic.main.fragment_note_read.*
 
 class NoteEditFragment : Fragment() {
     private lateinit var viewModelDetailNote: NoteDetailViewModel
@@ -37,8 +35,8 @@ class NoteEditFragment : Fragment() {
     fun observeNoteDetailViewModel() {
         viewModelDetailNote.noteDetailLD.observe(viewLifecycleOwner, Observer {
             txtEditNoteID.setText(viewModelDetailNote.noteDetailLD.value?.id)
-            txtEditNoteTitle.setText(viewModelDetailNote.noteDetailLD.value?.title)
-            txtEditNoteDesc.setText(viewModelDetailNote.noteDetailLD.value?.desc)
+            txtEditPlanTitle.setText(viewModelDetailNote.noteDetailLD.value?.title)
+            txtEditPlanDesc.setText(viewModelDetailNote.noteDetailLD.value?.desc)
             txtEditNoteContent.setText(viewModelDetailNote.noteDetailLD.value?.content)
             txtEditNoteImage.setText(viewModelDetailNote.noteDetailLD.value?.photoUrl)
         })
