@@ -21,19 +21,15 @@
         android:id="@+id/noteCreateFragment"
         android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.NoteCreateFragment"
         android:label="fragment_note_create"
-        tools:layout="@layout/fragment_note_create" >
-        <action
-            android:id="@+id/actionNoteMenu"
-            app:destination="@id/itemNote" />
-    </fragment>
+        tools:layout="@layout/fragment_note_create" />
     <fragment
         android:id="@+id/noteEditFragment"
         android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.NoteEditFragment"
         android:label="fragment_note_edit"
         tools:layout="@layout/fragment_note_edit" >
-        <action
-            android:id="@+id/actionReadEditedNote"
-            app:destination="@id/noteReadFragment" />
+        <argument
+            android:name="idNote"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/noteReadFragment"
@@ -43,16 +39,15 @@
         <action
             android:id="@+id/actionEditNote"
             app:destination="@id/noteEditFragment" />
+        <argument
+            android:name="idNote"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/plannerCreateFragment"
         android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.PlannerCreateFragment"
         android:label="fragment_planner_create"
-        tools:layout="@layout/fragment_planner_create" >
-        <action
-            android:id="@+id/actionPlanMenu"
-            app:destination="@id/itemPlanner" />
-    </fragment>
+        tools:layout="@layout/fragment_planner_create" />
     <fragment
         android:id="@+id/itemPlanner"
         android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.PlannerMenuFragment"
@@ -78,11 +73,7 @@
         android:id="@+id/plannerEditFragment"
         android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.PlannerEditFragment"
         android:label="fragment_planner_edit"
-        tools:layout="@layout/fragment_planner_edit" >
-        <action
-            android:id="@+id/actionReadEditedPlan"
-            app:destination="@id/plannerReadFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_planner_edit" />
     <fragment
         android:id="@+id/itemProfile"
         android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.ProfileFragment"

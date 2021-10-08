@@ -25,7 +25,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imgNoteList"
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -46,7 +46,7 @@
                 android:text="Note Title"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/imgNoteList"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -56,7 +56,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Note short description"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/imgNoteList"
                 app:layout_constraintTop_toBottomOf="@+id/txtCreateNoteTitle" />
 
             <Button
@@ -68,6 +68,16 @@
                 android:text="Read"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgNoteList"
+                app:layout_constraintEnd_toEndOf="@+id/imgNoteList"
+                app:layout_constraintStart_toStartOf="@+id/imgNoteList"
+                app:layout_constraintTop_toTopOf="@+id/imgNoteList" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

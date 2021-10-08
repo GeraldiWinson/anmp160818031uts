@@ -20,10 +20,5 @@ class PlannerEditFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        btnEditCurrentPlan.setOnClickListener {
-            val action = PlannerEditFragmentDirections.actionReadEditedPlan()
-            Navigation.findNavController(it).navigate(action)
-        }
     }
 }

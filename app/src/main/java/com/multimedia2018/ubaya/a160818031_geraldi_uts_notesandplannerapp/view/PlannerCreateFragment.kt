@@ -20,10 +20,5 @@ class PlannerCreateFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        btnCreatePlan.setOnClickListener {
-            val action = PlannerCreateFragmentDirections.actionPlanMenu()
-            Navigation.findNavController(it).navigate(action)
-        }
     }
 }

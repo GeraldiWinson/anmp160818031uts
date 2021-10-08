@@ -20,10 +20,5 @@ class NoteCreateFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        btnCreateNote.setOnClickListener {
-            val action = NoteCreateFragmentDirections.actionNoteMenu()
-            Navigation.findNavController(it).navigate(action)
-        }
     }
 }

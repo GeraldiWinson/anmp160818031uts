@@ -14,35 +14,35 @@
             android:id="@+id/txtReadNoteTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:text="Lorem Ipsum Title"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgReadNote"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtReadNoteDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Description lorem ipsum dolor sit amet"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgReadNote"
             app:layout_constraintTop_toBottomOf="@+id/txtReadNoteTitle" />
 
         <TextView
             android:id="@+id/txtReadNoteContent"
             android:layout_width="380dp"
             android:layout_height="300dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:inputType="textMultiLine"
             android:text="hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtReadNoteDesc" />
+            app:layout_constraintTop_toBottomOf="@+id/imgReadNote" />
 
         <Button
             android:id="@+id/btnEditNote"
@@ -54,5 +54,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtReadNoteContent" />
+
+        <ImageView
+            android:id="@+id/imgReadNote"
+            android:layout_width="75dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp"
+            tools:src="@tools:sample/avatars" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
