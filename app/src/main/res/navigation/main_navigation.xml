@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/itemNote">
+
+    <fragment
+        android:id="@+id/itemNote"
+        android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.NoteMenuFragment"
+        android:label="fragment_note_menu"
+        tools:layout="@layout/fragment_note_menu">
+        <action
+            android:id="@+id/actionCreateNote"
+            app:destination="@id/noteCreateFragment" />
+        <action
+            android:id="@+id/actionReadNote"
+            app:destination="@id/noteReadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteCreateFragment"
+        android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.NoteCreateFragment"
+        android:label="fragment_note_create"
+        tools:layout="@layout/fragment_note_create" >
+        <action
+            android:id="@+id/actionNoteMenu"
+            app:destination="@id/itemNote" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteEditFragment"
+        android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.NoteEditFragment"
+        android:label="fragment_note_edit"
+        tools:layout="@layout/fragment_note_edit" >
+        <action
+            android:id="@+id/actionReadEditedNote"
+            app:destination="@id/noteReadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteReadFragment"
+        android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.NoteReadFragment"
+        android:label="fragment_note_read"
+        tools:layout="@layout/fragment_note_read" >
+        <action
+            android:id="@+id/actionEditNote"
+            app:destination="@id/noteEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/plannerCreateFragment"
+        android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.PlannerCreateFragment"
+        android:label="fragment_planner_create"
+        tools:layout="@layout/fragment_planner_create" >
+        <action
+            android:id="@+id/actionPlanMenu"
+            app:destination="@id/itemPlanner" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemPlanner"
+        android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.PlannerMenuFragment"
+        android:label="fragment_planner_menu"
+        tools:layout="@layout/fragment_planner_menu" >
+        <action
+            android:id="@+id/actionCreatePlan"
+            app:destination="@id/plannerCreateFragment" />
+        <action
+            android:id="@+id/actionReadPlan"
+            app:destination="@id/plannerReadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/plannerReadFragment"
+        android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.PlannerReadFragment"
+        android:label="fragment_planner_read"
+        tools:layout="@layout/fragment_planner_read" >
+        <action
+            android:id="@+id/actionEditPlan"
+            app:destination="@id/plannerEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/plannerEditFragment"
+        android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.PlannerEditFragment"
+        android:label="fragment_planner_edit"
+        tools:layout="@layout/fragment_planner_edit" >
+        <action
+            android:id="@+id/actionReadEditedPlan"
+            app:destination="@id/plannerReadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/actionProfileDetail"
+            app:destination="@id/profileDetailFragment" />
+        <action
+            android:id="@+id/actionSettings"
+            app:destination="@id/settingsFragment" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="user" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileDetailFragment"
+        android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.ProfileDetailFragment"
+        android:label="fragment_profile_detail"
+        tools:layout="@layout/fragment_profile_detail" >
+        <action
+            android:id="@+id/actionProfileMenu"
+            app:destination="@id/itemProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

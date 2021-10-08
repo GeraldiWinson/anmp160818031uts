@@ -1,0 +1,2 @@
+rootProject.name = "160818031_Geraldi_UTS-NotesAndPlannerApp"
+include ':app'
