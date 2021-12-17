@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.R
+import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.model.Planners
 import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.viewmodel.NoteDetailViewModel
 import kotlinx.android.synthetic.main.fragment_note_edit.*
+import kotlinx.android.synthetic.main.fragment_note_read.*
 
 class NoteEditFragment : Fragment() {
     private lateinit var viewModelDetailNote: NoteDetailViewModel
@@ -27,18 +29,19 @@ class NoteEditFragment : Fragment() {
         arguments?.let {
             var noteId = NoteReadFragmentArgs.fromBundle(requireArguments()).idNote
             viewModelDetailNote = ViewModelProvider(this).get(NoteDetailViewModel::class.java)
-            viewModelDetailNote.fetchData()
+
+            val uuid = NoteEditFragmentArgs.fromBundle(requireArguments()).idNote.toInt()
+            viewModelDetailNote.fetch(uuid)
             observeNoteDetailViewModel()
         }
     }
 
     fun observeNoteDetailViewModel() {
-        viewModelDetailNote.noteDetailLD.observe(viewLifecycleOwner, Observer {
-            txtEditNoteID.setText(viewModelDetailNote.noteDetailLD.value?.id)
-            txtEditPlanTitle.setText(viewModelDetailNote.noteDetailLD.value?.title)
-            txtEditPlanDesc.setText(viewModelDetailNote.noteDetailLD.value?.desc)
-            txtEditNoteContent.setText(viewModelDetailNote.noteDetailLD.value?.content)
-            txtEditNoteImage.setText(viewModelDetailNote.noteDetailLD.value?.photoUrl)
+        viewModelDetailNote.noteLD.observe(viewLifecycleOwner, Observer {
+            txtEditPlanTitle.setText(it.title)
+            txtEditNoteDesc.setText(it.desc)
+            txtEditNoteContent.setText(it.content)
+            txtEditNoteImage.setText(it.photoUrl)
         })
     }
 }

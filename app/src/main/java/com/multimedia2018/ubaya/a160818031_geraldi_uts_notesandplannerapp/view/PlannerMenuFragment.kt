@@ -34,12 +34,12 @@ class PlannerMenuFragment : Fragment() {
         recViewPlan.layoutManager = LinearLayoutManager(context)
         recViewPlan.adapter = plannerListAdapter
 
-        observePlanViewModel()
-
         fabCreatePlan.setOnClickListener {
             val action = PlannerMenuFragmentDirections.actionCreatePlan()
             Navigation.findNavController(it).navigate(action)
         }
+
+        observePlanViewModel()
     }
 
     fun observePlanViewModel() {

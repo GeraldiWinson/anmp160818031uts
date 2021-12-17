@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -17,7 +18,6 @@ import kotlinx.android.synthetic.main.note_list_item.view.*
 class NoteReadFragment : Fragment() {
     private lateinit var viewModelDetailNote: NoteDetailViewModel
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,25 +29,33 @@ class NoteReadFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
-            var noteId = NoteReadFragmentArgs.fromBundle(requireArguments()).idNote
+            //var noteId = NoteReadFragmentArgs.fromBundle(requireArguments()).idNote
             viewModelDetailNote = ViewModelProvider(this).get(NoteDetailViewModel::class.java)
-            viewModelDetailNote.fetchData()
-            observeNoteDetailViewModel()
-        }
 
-        btnEditNote.setOnClickListener {
-            var id = viewModelDetailNote.noteDetailLD.value?.id.toString()
-            val action = NoteReadFragmentDirections.actionEditNote(id)
-            Navigation.findNavController(it).navigate(action)
+            val uuid = NoteReadFragmentArgs.fromBundle(requireArguments()).idNote.toInt()
+            viewModelDetailNote.fetch(uuid)
+            observeNoteDetailViewModel()
+
+            btnEditNote.setOnClickListener {
+                var id = viewModelDetailNote.noteLD.value?.uuid.toString()
+                val action = NoteReadFragmentDirections.actionEditNote(id)
+                Navigation.findNavController(it).navigate(action)
+            }
+
+            btnClearNote.setOnClickListener {
+                viewModelDetailNote.deleteNote(uuid)
+                Navigation.findNavController(it).popBackStack()
+                Toast.makeText(view.context, "Note deleted", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
     fun observeNoteDetailViewModel() {
-        viewModelDetailNote.noteDetailLD.observe(viewLifecycleOwner, Observer {
-            txtReadNoteTitle.setText(viewModelDetailNote.noteDetailLD.value?.title)
-            txtReadNoteDesc.setText(viewModelDetailNote.noteDetailLD.value?.desc)
-            txtReadNoteContent.setText(viewModelDetailNote.noteDetailLD.value?.content)
-            imgReadNote.loadImage(viewModelDetailNote.noteDetailLD.value?.photoUrl, progressBar2)
+        viewModelDetailNote.noteLD.observe(viewLifecycleOwner, Observer {
+            txtReadNoteTitle.setText(it.title)
+            txtReadNoteDesc.setText(it.desc)
+            txtReadNoteContent.setText(it.content)
+            imgReadNote.loadImage(it.photoUrl, progressBar2)
         })
     }
 }

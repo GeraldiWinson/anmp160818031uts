@@ -28,12 +28,22 @@ class NoteListAdapter(val noteList:ArrayList<Notes>) : RecyclerView.Adapter<Note
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        holder.view.txtCreateNoteTitle.text = noteList[position].title
+        /*holder.view.txtCreateNoteTitle.text = noteList[position].title
         holder.view.txtCreateNoteDesc.text = noteList[position].desc
         holder.view.imgNoteList.loadImage(noteList[position].photoUrl, holder.view.progressBar)
 
         holder.view.btnRead.setOnClickListener {
             var idNote = noteList[position].id.toString()
+            val action = NoteMenuFragmentDirections.actionReadNote(idNote)
+            Navigation.findNavController(it).navigate(action)
+        }*/
+
+        holder.view.txtCreateNoteTitle.setText(noteList[position].title)
+        holder.view.txtCreateNoteDesc.setText(noteList[position].desc)
+        holder.view.imgNoteList.loadImage(noteList[position].photoUrl, holder.view.progressBar)
+
+        holder.view.btnRead.setOnClickListener {
+            var idNote = noteList[position].uuid.toString()
             val action = NoteMenuFragmentDirections.actionReadNote(idNote)
             Navigation.findNavController(it).navigate(action)
         }

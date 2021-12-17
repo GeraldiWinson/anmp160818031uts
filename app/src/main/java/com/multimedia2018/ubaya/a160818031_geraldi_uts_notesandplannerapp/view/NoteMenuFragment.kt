@@ -33,12 +33,12 @@ class NoteMenuFragment : Fragment() {
         recViewNote.layoutManager = LinearLayoutManager(context)
         recViewNote.adapter = noteListAdapter
 
-        observeViewModel()
-
         fabCreateNote.setOnClickListener{
             val action = NoteMenuFragmentDirections.actionCreateNote()
             Navigation.findNavController(it).navigate(action)
         }
+
+        observeViewModel()
     }
 
     fun observeViewModel() {

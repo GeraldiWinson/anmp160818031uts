@@ -26,13 +26,18 @@ class PlannerListAdapter(val plannerList:ArrayList<Planners>) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: PlannerViewHolder, position: Int) {
-        holder.view.txtPlanTitle.text = plannerList[position].title
+        /*holder.view.txtPlanTitle.text = plannerList[position].title
         holder.view.txtPlanDesc.text = plannerList[position].desc
         holder.view.txtPlanDate.text = plannerList[position].date
-        holder.view.txtPlanTime.text = plannerList[position].time
+        holder.view.txtPlanTime.text = plannerList[position].time*/
+
+        holder.view.txtPlanTitle.setText(plannerList[position].title)
+        holder.view.txtPlanDesc.setText(plannerList[position].desc)
+        holder.view.txtPlanDate.setText(plannerList[position].date)
+        holder.view.txtPlanTime.setText(plannerList[position].time)
 
         holder.view.btnCheck.setOnClickListener {
-            val idPlan = plannerList[position].id.toString()
+            val idPlan = plannerList[position].uuid.toString()
             val act = PlannerMenuFragmentDirections.actionReadPlan(idPlan)
             Navigation.findNavController(it).navigate(act)
         }

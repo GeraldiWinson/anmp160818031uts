@@ -78,6 +78,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/imgNoteList"
                 app:layout_constraintStart_toStartOf="@+id/imgNoteList"
                 app:layout_constraintTop_toTopOf="@+id/imgNoteList" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
