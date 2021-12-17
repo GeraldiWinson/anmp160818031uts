@@ -7,13 +7,13 @@ import androidx.room.PrimaryKey
 @Entity
 data class Notes(
     @ColumnInfo(name="title")
-    val title:String,
+    var title:String,
     @ColumnInfo(name="desc")
-    val desc:String,
+    var desc:String,
     @ColumnInfo(name="content")
-    val content:String,
+    var content:String,
     @ColumnInfo(name="photoUrl")
-    val photoUrl:String
+    var photoUrl:String
 ) {
     @PrimaryKey(autoGenerate = true)
     var uuid:Int = 0
@@ -22,15 +22,15 @@ data class Notes(
 @Entity
 data class Planners(
     @ColumnInfo(name="title")
-    val title:String,
+    var title:String,
     @ColumnInfo(name="desc")
-    val desc:String,
+    var desc:String,
     @ColumnInfo(name="date")
-    val date:String,
+    var date:String,
     @ColumnInfo(name="time")
-    val time:String,
+    var time:String,
     @ColumnInfo(name="priority")
-    val priority:Int
+    var priority:Int
 ) {
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0

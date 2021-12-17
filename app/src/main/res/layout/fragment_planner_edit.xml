@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable name="planner" type="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.model.Planners" />
+        <variable name="saveListener" type="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.PlanSaveChangesClick" />
     </data>
 
     <FrameLayout
@@ -78,6 +79,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtEditPlanTitle"
+                    android:text="@={planner.title}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -96,6 +98,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtEditNoteDesc"
+                    android:text="@={planner.desc}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -114,6 +117,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtEditPlanDate"
+                    android:text="@={planner.date}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -132,6 +136,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtEditPlanTime"
+                    android:text="@={planner.time}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -143,6 +148,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:text="Edit"
+                android:onClick="@{(view) -> saveListener.onPlanSaveChangesClick(view, planner)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout10" />
 
@@ -164,6 +170,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:ems="5"
+                android:text="@={``+planner.priority}"
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView26" />

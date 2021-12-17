@@ -27,7 +27,6 @@ class NoteReadFragment : Fragment(), NoteEditClick {
         savedInstanceState: Bundle?
     ): View? {
         dataBinding = DataBindingUtil.inflate<FragmentNoteReadBinding>(inflater, R.layout.fragment_note_read, container, false)
-        //return inflater.inflate(R.layout.fragment_note_read, container, false)
         return dataBinding.root
     }
 
@@ -39,12 +38,6 @@ class NoteReadFragment : Fragment(), NoteEditClick {
             val uuid = NoteReadFragmentArgs.fromBundle(requireArguments()).idNote.toInt()
             viewModelDetailNote.fetch(uuid)
             observeNoteDetailViewModel()
-
-//            btnEditNote.setOnClickListener {
-//                var id = viewModelDetailNote.noteLD.value?.uuid.toString()
-//                val action = NoteReadFragmentDirections.actionEditNote(id)
-//                Navigation.findNavController(it).navigate(action)
-//            }
 
             btnClearNote.setOnClickListener {
                 viewModelDetailNote.deleteNote(uuid)
@@ -58,9 +51,7 @@ class NoteReadFragment : Fragment(), NoteEditClick {
         viewModelDetailNote.noteLD.observe(viewLifecycleOwner, Observer {
             dataBinding.note = it
             dataBinding.editListener = this
-//            txtReadNoteTitle.setText(it.title)
-//            txtReadNoteDesc.setText(it.desc)
-//            txtReadNoteContent.setText(it.content)
+
             imgReadNote.loadImage(it.photoUrl, progressBar2)
         })
     }

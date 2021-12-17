@@ -13,7 +13,6 @@ import androidx.navigation.Navigation
 import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.R
 import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.databinding.FragmentNoteEditBinding
 import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.model.Notes
-import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.model.Planners
 import com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.viewmodel.NoteDetailViewModel
 import kotlinx.android.synthetic.main.fragment_note_edit.*
 import kotlinx.android.synthetic.main.fragment_note_read.*
@@ -29,7 +28,6 @@ class NoteEditFragment : Fragment(), NoteSaveChangesClick {
     ): View? {
         dataBinding = DataBindingUtil.inflate<FragmentNoteEditBinding>(inflater, R.layout.fragment_note_edit, container, false)
         return dataBinding.root
-        //return inflater.inflate(R.layout.fragment_note_edit, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,22 +39,11 @@ class NoteEditFragment : Fragment(), NoteSaveChangesClick {
             val uuid = NoteEditFragmentArgs.fromBundle(requireArguments()).idNote.toInt()
             viewModelDetailNote.fetch(uuid)
             observeNoteDetailViewModel()
-
-//            btnEdit.setOnClickListener {
-//                viewModelDetailNote.update(txtEditPlanTitle.text.toString(), txtEditNoteDesc.text.toString(),
-//                    txtEditNoteContent.text.toString(), txtEditNoteImage.text.toString(), uuid)
-//                Toast.makeText(view.context, "Note updated", Toast.LENGTH_SHORT).show()
-//                Navigation.findNavController(it).popBackStack()
-//            }
         }
     }
 
     fun observeNoteDetailViewModel() {
         viewModelDetailNote.noteLD.observe(viewLifecycleOwner, Observer {
-//            txtEditPlanTitle.setText(it.title)
-//            txtEditNoteDesc.setText(it.desc)
-//            txtEditNoteContent.setText(it.content)
-//            txtEditNoteImage.setText(it.photoUrl)
             dataBinding.note = it
             dataBinding.saveListener = this
         })
