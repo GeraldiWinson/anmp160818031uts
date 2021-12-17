@@ -40,6 +40,13 @@ class NoteDetailViewModel(application: Application) : AndroidViewModel(applicati
         }
     }*/
 
+    fun update(title:String, desc:String, content:String, photoUrl:String, uuid:Int) {
+        launch {
+            val db = buildNotesDb(getApplication())
+            db.notesDao().updateNote(title, desc, content, photoUrl, uuid)
+        }
+    }
+
     //Menghapus note dengan mendelete note pilihan lalu men-refresh kembali tampilan
     fun deleteNote(uuid: Int) {
         launch {

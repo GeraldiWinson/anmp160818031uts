@@ -1,87 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.NoteReadFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+        <variable name="note" type="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.model.Notes" />
+        <variable name="editListener" type="com.multimedia2018.ubaya.a160818031_geraldi_uts_notesandplannerapp.view.NoteEditClick" />
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".view.NoteReadFragment">
 
-        <TextView
-            android:id="@+id/txtReadNoteTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="Lorem Ipsum Title"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/imgReadNote"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txtReadNoteDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Description lorem ipsum dolor sit amet"
-            app:layout_constraintStart_toEndOf="@+id/imgReadNote"
-            app:layout_constraintTop_toBottomOf="@+id/txtReadNoteTitle" />
+            <TextView
+                android:id="@+id/txtReadNoteTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@{note.title}"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imgReadNote"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txtReadNoteContent"
-            android:layout_width="380dp"
-            android:layout_height="300dp"
-            android:layout_marginTop="16dp"
-            android:inputType="textMultiLine"
-            android:text="hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgReadNote" />
+            <TextView
+                android:id="@+id/txtReadNoteDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@{note.desc}"
+                app:layout_constraintStart_toEndOf="@+id/imgReadNote"
+                app:layout_constraintTop_toBottomOf="@+id/txtReadNoteTitle" />
 
-        <Button
-            android:id="@+id/btnEditNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Edit"
-            app:icon="@drawable/ic_baseline_edit_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtReadNoteContent" />
+            <TextView
+                android:id="@+id/txtReadNoteContent"
+                android:layout_width="380dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="16dp"
+                android:inputType="textMultiLine"
+                android:text="@{note.content}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgReadNote" />
 
-        <ImageView
-            android:id="@+id/imgReadNote"
-            android:layout_width="75dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp"
-            tools:src="@tools:sample/avatars" />
+            <Button
+                android:id="@+id/btnEditNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:tag="@{note.uuid}"
+                android:onClick="@{editListener::onNoteEditClick}"
+                android:text="Edit"
+                app:icon="@drawable/ic_baseline_edit_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtReadNoteContent" />
 
-        <ProgressBar
-            android:id="@+id/progressBar2"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/imgReadNote"
-            app:layout_constraintEnd_toEndOf="@+id/imgReadNote"
-            app:layout_constraintStart_toStartOf="@+id/imgReadNote"
-            app:layout_constraintTop_toTopOf="@+id/imgReadNote" />
+            <ImageView
+                android:id="@+id/imgReadNote"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
 
-        <Button
-            android:id="@+id/btnClearNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Clear Note"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnEditNote" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgReadNote"
+                app:layout_constraintEnd_toEndOf="@+id/imgReadNote"
+                app:layout_constraintStart_toStartOf="@+id/imgReadNote"
+                app:layout_constraintTop_toTopOf="@+id/imgReadNote" />
+
+            <Button
+                android:id="@+id/btnClearNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Clear Note"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnEditNote" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>
